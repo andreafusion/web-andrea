@@ -154,10 +154,6 @@ body {
   padding: 0 7%;
   box-sizing: border-box;
 }
-.full-menu-links a {
-  max-width: 100%;
-  word-break: break-word;
-}
 
 .full-menu.active {
   transform: translateY(0);
@@ -172,10 +168,14 @@ body {
 
 .full-menu-links a {
   font-family: "Syne", sans-serif;
-  font-size: 4rem;
+  font-size: clamp(2.2rem, 9vw, 3.2rem);
   font-weight: 800;
   color: #fff;
   text-decoration: none;
+  line-height: 1;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
 /* -----------------------------
@@ -761,17 +761,13 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* Nav desktop fuera, hamburguesa dentro */
-  .desktop-only {
-    display: none;
-  }
-  #menu-toggle {
-    display: block;
-  }
-  #menu-toggle {
-  right: 16px; /* en vez de 5% */
-}
+  .desktop-only { display: none; }
+  #menu-toggle { display: block; right: 16px; }
 
+  .container {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
 
   .grid-solucion {
     grid-template-columns: 1fr;
@@ -780,6 +776,34 @@ body {
   .solucion-interactiva {
     height: 400px;
     margin-top: 50px;
+  }
+
+  /* ✅ FIX overflow en cards de SOLUCIÓN */
+  .solucion-interactiva .floating-card{
+    width: min(240px, 80vw);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .solucion-interactiva .floating-card.delay{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* ✅ FIX overflow en SERVICIOS */
+  .servicio-item{
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .servicio-item .num{
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+
+  .servicio-content h3{
+    font-size: 1.6rem;
+    line-height: 1.1;
   }
 
   .proyectos-grid.asimetrico {
@@ -797,10 +821,13 @@ body {
     text-align: center;
     justify-self: center;
   }
-  @media (max-width: 768px) {
-  .container {
-    padding-left: 7%;
-    padding-right: 7%;
+
+  /* ✅ Overlay menu legible en móvil */
+  .full-menu-links a {
+    font-size: clamp(2.2rem, 9vw, 3.2rem);
+    line-height: 1;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: anywhere;
   }
-}
 }
