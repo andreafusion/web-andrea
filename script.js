@@ -163,4 +163,30 @@ if (menuBtn && menuOverlay) {
         };
     });
 }
+// const form = document.getElementById("contact-form");
+if (form) {
+    form.onsubmit = async (e) => {
+        e.preventDefault();
+        const status = document.getElementById("form-status");
+        const btn = form.querySelector("button");
+        
+        btn.innerText = "enviando...";
+        btn.disabled = true;
+
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: new FormData(e.target),
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            status.innerHTML = "¡recibido! te escribo pronto.";
+            form.reset();
+        } else {
+            status.innerHTML = "ops! algo falló.";
+        }
+        btn.innerText = "enviar mensaje";
+        btn.disabled = false;
+    };
+}
     });

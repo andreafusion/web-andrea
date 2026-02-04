@@ -739,5 +739,72 @@ body.has-js .reveal.is-visible{
     margin: 8px 0;
     transition: all 0.4s ease;
 }
+/* --- SECCIÓN CONTACTO: AJUSTE DE ALINEACIÓN FINAL --- */
+.contacto.seccion-oscura {
+    padding: 120px 5%;
+    background-color: #000000;
+    text-align: center; /* Centra todo el contenido de la sección */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Asegura que el contenedor del form esté centrado */
+}
 
+.contacto.seccion-oscura .section-title {
+    color: #ffffff;
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem); 
+    line-height: 1.1;
+    margin: 20px auto 50px;
+    
+    /* --- EL CAMBIO CLAVE --- */
+    max-width: 850px; /* Al aumentar este valor, las palabras caben mejor en menos líneas */
+    text-align: center;
+    width: 90%; /* Asegura que en pantallas pequeñas no toque los bordes */
+}
 
+#contact-form {
+    width: 100%;
+    max-width: 650px; /* Ancho ideal para lectura y estética */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 20px;
+    background-color: #0a0a0a; /* Negro muy sutil para diferenciar del fondo */
+    border: 1px solid #222;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    text-align: left; /* El texto que escribes sí va a la izquierda */
+}
+
+/* BOTÓN: Más impacto y aire */
+.contacto .btn-primary {
+    background-color: var(--naranja);
+    color: white;
+    border: none;
+    padding: 25px; /* Más aire arriba y abajo */
+    font-family: 'Syne', sans-serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: -0.5px;
+    cursor: pointer;
+    text-transform: lowercase;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.contacto .btn-primary:hover {
+    background-color: #ff8552; /* Un naranja un pelín más claro al pasar el ratón */
+    transform: scale(1.01);
+}
+
+#form-status {
+    margin-top: 15px;
+    color: var(--naranja);
+    font-weight: 600;
+}
