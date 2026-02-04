@@ -790,6 +790,20 @@ body {
     transform: translateX(-50%);
   }
 
+  /* 🔒 CIERRE DEFINITIVO DE OVERFLOW EN SOLUCIÓN (MÓVIL) */
+.solucion {
+  overflow-x: hidden;
+}
+
+.solucion .container,
+.solucion .grid-solucion {
+  overflow-x: hidden;
+}
+
+.solucion-interactiva {
+  overflow: hidden;
+}
+
   /* ✅ FIX overflow en SERVICIOS */
   .servicio-item{
     flex-direction: column;
@@ -797,7 +811,7 @@ body {
   }
 
   .servicio-item .num{
-    margin-right: 1px;
+    margin-right: 0;
     margin-bottom: 8px;
   }
 
