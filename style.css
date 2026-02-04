@@ -801,6 +801,11 @@ body {
     margin-bottom: 8px;
   }
 
+  .servicio-item {
+  width: 100%;
+  box-sizing: border-box;
+  }
+
   .servicio-content h3{
     font-size: 1.6rem;
     line-height: 1.1;
