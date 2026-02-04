@@ -1,3 +1,52 @@
+/* --- IMPACTO TOTAL: X BLANCA SOBRE NARANJA --- */
+
+/* 1. Color de las barras cuando el menú está ABIERTO */
+#menu-toggle.active .bar {
+    background-color: #FFFFFF !important;
+    opacity: 1 !important;
+}
+
+/* 2. Posición y comportamiento de la X */
+#menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg) !important;
+}
+
+#menu-toggle.active .bar:nth-child(2) {
+    transform: translateY(-10px) rotate(-45deg) !important;
+}
+
+/* --- SOLUCIÓN FINAL X BLANCA --- */
+
+/* Forzamos que el botón esté SIEMPRE por encima de la mancha naranja */
+#menu-toggle {
+    position: fixed !important;
+    right: 5% !important;
+    top: 25px !important;
+    z-index: 999999 !important; /* Capa suprema */
+    display: block !important;
+}
+
+/* Color negro por defecto (cuando el fondo es blanco) */
+#menu-toggle .bar {
+    background-color: #000000 !important;
+    width: 30px !important;
+    height: 2px !important;
+    margin: 6px 0 !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+/* LA CLAVE: Cuando el menú está activo, las barras cambian a blanco y rotan */
+#menu-toggle.active .bar {
+    background-color: #FFFFFF !important; /* Blanco puro */
+}
+
+#menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(4px) rotate(45deg) !important;
+}
+
+#menu-toggle.active .bar:nth-child(2) {
+    transform: translateY(-4px) rotate(-45deg) !important;
+}
 :root {
     --blanco: #ffffff;
     --naranja: #FF5C00;
@@ -634,56 +683,61 @@ body.has-js .reveal.is-visible{
     .footer-grid { grid-template-columns: 1fr; gap: 40px; }
     .footer-links { flex-direction: column; gap: 40px; }
 }
-/* --- NAVEGACIÓN RESPONSIVE --- */
-
-/* Ocultar enlaces de desktop en pantallas pequeñas */
-@media (max-width: 768px) {
-    .desktop-only { display: none; }
-    
-    .menu-toggle {
-        display: block;
-        cursor: pointer;
-        z-index: 2001;
-    }
-}
-
-.menu-toggle .bar {
-    width: 25px;
-    height: 2px;
-    background-color: var(--negro);
-    margin: 6px 0;
-    transition: 0.4s;
-}
-
-/* EL MENÚ NARANJA */
+/* --- EL MENÚ NARANJA (FULL SCREEN) --- */
 .full-menu {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: var(--naranja);
-    z-index: 9998; /* Un nivel por debajo de la X */
-    display: flex;
+    width: 100% !important;
+    height: 100vh !important;
+    background-color: var(--naranja) !important;
+    z-index: 9998 !important; /* Por debajo de la X */
+    display: flex !important;
     align-items: center;
     justify-content: center;
-    
-    /* Estado inicial: Escondido arriba */
-    transform: translateY(-100%); 
+    transform: translateY(-100%);
     transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
-/* Cuando tiene la clase .active, baja a su sitio */
 .full-menu.active {
     transform: translateY(0);
 }
 
-/* EL BOTÓN (X) */
-.menu-toggle {
-    display: block;
-    cursor: pointer;
-    position: fixed; 
-    right: 5%;
-    top: 25px;
-    z-index: 9999; /* Por encima de TODO */
+/* --- LOS ENLACES (ESTILO REDY) --- */
+.full-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
 }
+
+.full-menu-links a {
+    font-family: 'Syne', sans-serif !important;
+    font-size: 4rem !important; /* ¡Ahora sí serán gigantes! */
+    font-weight: 800 !important;
+    color: white !important;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+/* --- EL BOTÓN HAMBURGUESA / X --- */
+#menu-toggle {
+    display: block !important;
+    cursor: pointer;
+    position: fixed !important;
+    right: 5% !important;
+    top: 25px !important;
+    z-index: 9999 !important; /* LA CAPA MÁS ALTA */
+    width: 35px;
+    height: 30px;
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--negro); /* Negro cuando el fondo es blanco */
+    margin: 8px 0;
+    transition: all 0.4s ease;
+}
+
+

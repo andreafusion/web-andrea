@@ -137,14 +137,17 @@ const menuOverlay = document.getElementById('full-menu');
 
 if (menuBtn && menuOverlay) {
     menuBtn.onclick = function() {
-        // Toggle para el botón (se convierte en X)
         this.classList.toggle('active');
-        // Toggle para el fondo naranja (aparece/desaparece)
         menuOverlay.classList.toggle('active');
         
-        // Bloquear el scroll del cuerpo para que no se mueva la web de fondo
         if (menuOverlay.classList.contains('active')) {
             document.body.style.overflow = 'hidden';
+            
+            // Animación de entrada de los links con GSAP
+            gsap.fromTo(".full-menu-links a", 
+                { y: 50, opacity: 0 }, 
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power4.out", delay: 0.3 }
+            );
         } else {
             document.body.style.overflow = 'auto';
         }
