@@ -1,0 +1,689 @@
+:root {
+    --blanco: #ffffff;
+    --naranja: #FF5C00;
+    --negro: #000000;
+    --gris: #f0f0f0;
+}
+
+html {
+    scroll-behavior: smooth; /* Esto hace que el scroll sea fluido por defecto */
+    scroll-padding-top: 80px; /* Evita que el menú tape el título al llegar a la sección */
+}
+
+/* Mejora para el menú fijo si quieres que siempre esté visible */
+.navbar {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 5%; 
+    position: fixed; /* Lo fijamos arriba */
+    width: 100%; 
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.8); /* Efecto cristal */
+    backdrop-filter: blur(10px);
+}
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    text-transform: lowercase; /* Toque creativo: todo en minúsculas */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--blanco);
+    color: var(--negro);
+}
+
+.handwriting {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 2rem;
+    color: var(--naranja);
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 40px 5%; position: fixed; width: 100%; z-index: 1000;
+}
+
+.logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; }
+.logo span { color: var(--naranja); }
+.nav-links a { text-decoration: none; color: var(--negro); margin-left: 20px; font-size: 0.9rem; }
+
+/* Hero */
+.hero {
+    height: 100vh;
+    display: flex; align-items: center;
+    padding: 0 10%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.9;
+    margin-bottom: 20px;
+}
+
+.outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--negro);
+}
+
+.hero-subtitle {
+    max-width: 500px;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    text-transform: none; /* Que el copy sea legible */
+}
+
+.btn-primary {
+    background: var(--naranja);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0; /* Menos técnico, más brutalista */
+    transition: 0.3s;
+}
+
+/* Decoración creativa */
+.hero-decor {
+    position: absolute; right: 10%; top: 30%;
+}
+
+.circle {
+    width: 200px; height: 200px;
+    border: 1px solid var(--naranja);
+    border-radius: 50%;
+}
+
+.handwriting-tag {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 1.5rem;
+    position: absolute; top: 50%; left: 50%;
+    transform: rotate(-15deg);
+}
+
+/* Sección Problema */
+.problema {
+    padding: 200px 10%;
+    background: var(--negro);
+    color: var(--blanco);
+}
+
+.section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.handwriting-inline {
+    font-family: 'Reenie Beanie', cursive;
+    color: var(--naranja);
+    font-size: 2.5rem;
+}
+.grid-solucion {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    align-items: center;
+    padding: 100px 0;
+}
+
+.highlight-orange {
+    color: var(--naranja);
+}
+
+.p-destacado {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    line-height: 1.3;
+}
+/* Ajuste global para secciones con fondo de color */
+.problema, .solucion {
+    width: 100%;
+    padding: 120px 0; /* Espaciado arriba y abajo */
+}
+
+/* El contenedor que centra el contenido */
+.container {
+    max-width: 1100px; /* O el ancho que prefieras para que alinee con el Hero */
+    margin: 0 auto;
+    padding: 0 5%; /* Margen de seguridad en móviles */
+}
+
+/* Específico para la sección negra */
+.problema .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea el texto a la izquierda */
+}
+
+.label {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 20px;
+    display: block;
+}
+/* Tarjetas Flotantes */
+.solucion-interactiva {
+    position: relative;
+    height: 300px;
+}
+
+.floating-card {
+    background: var(--gris);
+    padding: 30px;
+    width: 200px;
+    border: 1px solid var(--negro);
+    position: absolute;
+    top: 0;
+    left: 10%;
+    z-index: 2;
+}
+
+.floating-card.delay {
+    top: 120px;
+    left: 40%;
+    background: var(--naranja);
+    color: white;
+    border: none;
+    z-index: 1;
+}
+
+.card-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+/* Responsivo rápido */
+@media (max-width: 768px) {
+    .grid-solucion {
+        grid-template-columns: 1fr;
+    }
+    .solucion-interactiva {
+        height: 400px;
+        margin-top: 50px;
+    }
+}
+/* 1. CORRECCIÓN DE ANCHOS (Añadir o modificar al principio de tu CSS) */
+.container {
+    max-width: 1100px; 
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.problema, .solucion, .servicios {
+    width: 100%;
+}
+
+/* 2. ESTILOS DE SERVICIOS (Al final del archivo) */
+.servicios {
+    background-color: var(--blanco);
+    padding: 150px 0;
+}
+
+.servicios-lista {
+    margin-top: 80px;
+    border-top: 1px solid #ddd;
+}
+
+.servicio-item {
+    display: flex;
+    padding: 40px 0;
+    border-bottom: 1px solid #ddd;
+    cursor: crosshair;
+    /* Elimina cualquier 'opacity: 0' manual de aquí, GSAP se encarga */
+    transition: padding 0.4s ease, background-color 0.4s ease; 
+}
+
+.servicio-item:hover {
+    padding-left: 20px;
+    background-color: #fff9f5;
+}
+
+.servicio-item:hover .num {
+    color: var(--naranja);
+}
+
+.servicio-item .num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-right: 60px;
+    transition: 0.3s;
+}
+
+.servicio-content h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.servicio-content p {
+    max-width: 600px;
+    color: var(--texto-suave);
+    text-transform: none;
+}
+/* --- ESTILOS BLOQUE PROCESO --- */
+.proceso {
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 150px 0;
+}
+
+.proceso .section-title {
+    color: var(--blanco);
+    margin-bottom: 60px;
+}
+
+.proceso-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 30px;
+}
+
+.paso {
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde muy sutil */
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.paso:hover {
+    border-color: var(--naranja);
+    transform: translateY(-10px); /* Sube un poquito al tocarlo */
+}
+
+.paso-num {
+    font-family: 'Reenie Beanie', cursive;
+    color: var(--naranja);
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.paso h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-transform: lowercase;
+}
+
+.paso p {
+    font-size: 0.95rem;
+    color: #ababab;
+    line-height: 1.6;
+    text-transform: none; /* Para que el copy sea legible */
+}
+/* Visible por defecto */
+.reveal{
+  opacity: 1;
+  transform: none;
+}
+
+/* Solo si hay JS: se ocultan antes de entrar */
+body.has-js .reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+body.has-js .reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+.proyectos {
+    padding: 150px 0;
+    background-color: var(--blanco);
+}
+
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 60px;
+    margin-top: 80px;
+}
+
+.proyecto-card {
+    text-decoration: none;
+    color: var(--negro);
+    display: block;
+}
+
+.proyecto-img-wrapper {
+    overflow: hidden; /* Para que el zoom no se salga de los bordes */
+    border: 1px solid var(--negro);
+    aspect-ratio: 4/5; /* Formato vertical, muy moderno */
+}
+
+.proyecto-img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.proyecto-card:hover .proyecto-img {
+    transform: scale(1.05); /* Zoom suave */
+}
+
+.proyecto-info {
+    margin-top: 25px;
+}
+
+.proyecto-info h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-transform: lowercase;
+}
+
+.proyecto-info p {
+    font-size: 0.9rem;
+    color: var(--texto-suave);
+    text-transform: none;
+    max-width: 90%;
+}
+.proyectos-grid.asimetrico {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* El izquierdo es un 50% más ancho que el derecho */
+    gap: 40px;
+    align-items: start;
+}
+
+.proyectos-secundarios {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* El proyecto destacado tiene una imagen más alta */
+.proyecto-card.destacado .proyecto-img-wrapper {
+    aspect-ratio: 4/6; /* Más vertical y esbelto */
+}
+
+/* Los secundarios son más compactos */
+.proyectos-secundarios .proyecto-img-wrapper {
+    aspect-ratio: 16/10; /* Formato más apaisado */
+}
+
+.img-proyecto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%); /* Toque disruptivo: fotos en BN que cobran color al hover */
+    transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.proyecto-card:hover .img-proyecto {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+/* Responsivo */
+@media (max-width: 768px) {
+    .proyectos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Responsivo: en móvil se pone una card debajo de otra */
+@media (max-width: 900px) {
+    .proceso-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.proyectos { padding: 150px 0; background: var(--blanco); }
+.proyectos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 60px; }
+.proyecto-thumb { aspect-ratio: 16/9; border: 1px solid var(--negro); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.proyecto-card h3 { font-family: 'Syne', sans-serif; margin-top: 20px; font-size: 1.2rem; }
+.proyecto-card p { opacity: 0.6; font-size: 0.9rem; text-transform: none; }
+/* --- Ajustes de Proyectos --- */
+.criterio-tag {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--naranja);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.proyecto-decision {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+/* Contenedor relativo para que el sticker no se escape */
+.proyecto-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.handwriting-sticker {
+    position: absolute;
+    font-family: 'Reenie Beanie', cursive;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    padding: 8px 15px;
+    z-index: 10;
+    display: inline-block; /* Evita que ocupe todo el ancho */
+    white-space: nowrap;  /* Evita que el texto se rompa en dos líneas */
+    pointer-events: none;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Sticker Cánula (Proyecto Grande) */
+.destacado .handwriting-sticker {
+    top: 20px;
+    left: 20px;
+    background: var(--blanco);
+    color: var(--negro);
+    transform: rotate(-5deg);
+}
+
+/* Sticker Andrea Fusion */
+.sticker-naranja {
+    top: 15px;
+    right: 15px;
+    background: var(--naranja);
+    color: var(--blanco);
+    transform: rotate(3deg);
+}
+
+/* Sticker Mimas Iconic */
+.sticker-blanco {
+    bottom: 15px;
+    left: 15px;
+    background: var(--blanco);
+    color: var(--negro);
+    transform: rotate(-2deg);
+}
+
+/* Efecto al pasar el ratón por la card */
+.proyecto-card:hover .handwriting-sticker {
+    transform: scale(1.1) rotate(0deg);
+}
+
+/* Ajuste del texto de decisión para que no se vea apretado */
+.proyecto-decision {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 12px;
+    color: var(--texto-suave);
+    text-transform: none; /* Importante para que el copy fluya bien */
+}
+
+/* --- Estilos CTA Final --- */
+.cta-final {
+    padding: 200px 0;
+    background-color: var(--naranja);
+    color: var(--blanco);
+    text-align: center;
+}
+
+.cta-final .section-title {
+    color: var(--blanco);
+    font-size: clamp(3rem, 8vw, 5.5rem); /* Título masivo */
+    line-height: 0.85;
+}
+
+.cta-wrapper p {
+    margin: 40px 0;
+    font-size: 1.2rem;
+    text-transform: none;
+}
+
+.btn-gigante {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 800;
+    border-bottom: 5px solid var(--blanco);
+    padding-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-gigante:hover {
+    color: var(--negro);
+    border-color: var(--negro);
+}
+.site-footer {
+    padding: 80px 0 40px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    margin-bottom: 80px;
+}
+
+.footer-brand p {
+    font-size: 1.2rem;
+    line-height: 1.3;
+    margin-top: 20px;
+    text-transform: none;
+    opacity: 0.7;
+}
+
+.footer-links {
+    display: flex;
+    gap: 60px;
+}
+
+.footer-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    color: var(--naranja);
+    margin-bottom: 10px;
+}
+
+.footer-group a {
+    text-decoration: none;
+    color: var(--negro);
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.footer-group a:hover {
+    color: var(--naranja);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    border-top: 1px solid #ddd;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.back-to-top {
+    text-decoration: none;
+    color: var(--negro);
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-links { flex-direction: column; gap: 40px; }
+}
+/* --- NAVEGACIÓN RESPONSIVE --- */
+
+/* Ocultar enlaces de desktop en pantallas pequeñas */
+@media (max-width: 768px) {
+    .desktop-only { display: none; }
+    
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        z-index: 2001;
+    }
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 2px;
+    background-color: var(--negro);
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* EL MENÚ NARANJA */
+.full-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--naranja);
+    z-index: 9998; /* Un nivel por debajo de la X */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Estado inicial: Escondido arriba */
+    transform: translateY(-100%); 
+    transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+/* Cuando tiene la clase .active, baja a su sitio */
+.full-menu.active {
+    transform: translateY(0);
+}
+
+/* EL BOTÓN (X) */
+.menu-toggle {
+    display: block;
+    cursor: pointer;
+    position: fixed; 
+    right: 5%;
+    top: 25px;
+    z-index: 9999; /* Por encima de TODO */
+}
