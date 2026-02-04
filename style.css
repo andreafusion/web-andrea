@@ -216,6 +216,9 @@ body {
   text-transform: none;
   max-width: 520px;
 }
+.hero, .solucion, .proyectos {
+  overflow: hidden;
+}
 
 /* Botón principal */
 .btn-primary {
@@ -765,6 +768,10 @@ body {
   #menu-toggle {
     display: block;
   }
+  #menu-toggle {
+  right: 16px; /* en vez de 5% */
+}
+
 
   .grid-solucion {
     grid-template-columns: 1fr;
